@@ -23,7 +23,7 @@ Modern web teknolojileri ile geliştirilmiş, kullanıcı dostu bir manav alış
 
 1.  **Projeyi Klonlayın:**
     ```bash
-    git clone https://github.com/kullaniciadi/groccery-commerce.git
+    git clone https://github.com/kullaniciadi/groccery-commerce.git](https://github.com/HasanEROL1/next-grocery)
     cd groccery-commerce
     ```
 
