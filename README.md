@@ -48,7 +48,6 @@ Modern web teknolojileri ile geliştirilmiş, kullanıcı dostu bir manav alış
 ## 🎥 Demo
 ![Proje Demosu](manav.gif)
 
-> **Not:** Çektiğiniz videoyu GIF formatına dönüştürüp projenin ana dizinine `demo.gif` ismiyle eklerseniz, yukarıdaki alanda otomatik olarak görünecektir.
 
 ---
 *Bu proje, modern web geliştirme pratiklerini sergilemek amacıyla hazırlanmış bir portfolyo çalışmasıdır.*
