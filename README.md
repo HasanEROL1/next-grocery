@@ -1,37 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍎 Groccery-Commerce: Full-Stack Manav Otomasyonu
 
-## Getting Started
+Modern web teknolojileri ile geliştirilmiş, kullanıcı dostu bir manav alışveriş deneyimi sunan Full-Stack e-ticaret uygulamasıdır. Ürünlerin sepetlenmesinden, Stripe ile güvenli ödeme adımına kadar tüm süreçler uçtan uca simüle edilmiştir.
 
-First, run the development server:
+## 🚀 Öne Çıkan Özellikler
+* **Dinamik Ürün Katalogu:** MongoDB üzerinden çekilen güncel ürün listesi.
+* **Gelişmiş Sepet Sistemi:** Ürün ekleme, miktar güncelleme ve gerçek zamanlı toplam tutar hesaplama.
+* **Stripe Ödeme Entegrasyonu:** Gerçek dünya standartlarında güvenli ödeme akışı.
+* **Stok Yönetimi:** Ödeme sonrası otomatik stok düşürme ve veritabanı senkronizasyonu.
+* **Modern Arayüz:** **Tailwind CSS 4** ile geliştirilmiş, tamamen responsive tasarım.
+* **Hızlı Bildirimler:** **React-Toastify** ile kullanıcı etkileşimleri için anlık geri bildirimler.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Teknoloji Stack'i
+* **Framework:** Next.js 16 (App Router)
+* **Frontend:** React 19, TypeScript
+* **Styling:** Tailwind CSS 4
+* **Database:** MongoDB & Mongoose
+* **Payment:** Stripe API
+* **Icons:** React Icons
+* **Notifications:** React-Toastify
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Kurulum ve Çalıştırma
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Projeyi Klonlayın:**
+    ```bash
+    git clone https://github.com/kullaniciadi/groccery-commerce.git
+    cd groccery-commerce
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Bağımlılıkları Yükleyin:**
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3.  **Environment Variables (.env) Ayarları:**
+    Ana dizinde bir `.env.local` dosyası oluşturun ve gerekli anahtarları ekleyin:
+    ```env
+    MONGODB_URI=your_mongodb_connection_string
+    STRIPE_SECRET_KEY=your_stripe_secret_key
+    NEXT_PUBLIC_API_URL=http://localhost:3000
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4.  **Uygulamayı Başlatın:**
+    ```bash
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎥 Demo
+![Proje Demosu](manav.gif)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> **Not:** Çektiğiniz videoyu GIF formatına dönüştürüp projenin ana dizinine `demo.gif` ismiyle eklerseniz, yukarıdaki alanda otomatik olarak görünecektir.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# next-grocery
+---
+*Bu proje, modern web geliştirme pratiklerini sergilemek amacıyla hazırlanmış bir portfolyo çalışmasıdır.*

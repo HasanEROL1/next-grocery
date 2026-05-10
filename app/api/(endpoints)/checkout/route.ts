@@ -3,11 +3,11 @@ import connectMongo from "../../utils/connectMongo";
 import Order from "../../models/Order";
 import Grocery from "../../models/Grocery";
 import Cart from "../../models/Cart";
+import Stripe from "stripe";
 
-// Stripe'ı yükle eğer proje varsa
-let stripe: any;
+// Stripe istemcisini başlat
+let stripe: Stripe | undefined;
 try {
-  const Stripe = require("stripe");
   stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     typescript: true,
   });
@@ -18,8 +18,8 @@ try {
 // Katalog'daki aktif ürünleri alıp getirir
 const getActiveProducts = async () => {
   if (!stripe) return [];
-  let stripeProducts = await stripe.products.list();
-  return stripeProducts.data.filter((product: any) => product.active);
+  const stripeProducts = await stripe.products.list();
+  return stripeProducts.data.filter((product: Stripe.Product) => product.active);
 };
 
 export async function POST(req: Request) {
@@ -49,8 +49,32 @@ export async function POST(req: Request) {
 
 console.log(process.env.NEXT_PUBLIC_API_URL);
 
+interface CustomerInfo {
+  name: string;
+  phone: string;
+  deliveryAddress?: string;
+  isDelivery?: boolean;
+}
+
+interface SingleItemCheckoutData {
+  grocery: {
+    _id: string;
+    name: string;
+    description: string;
+    price: number;
+  };
+  quantity: number;
+  customerInfo: CustomerInfo;
+}
+
+interface CartCheckoutData {
+  userId: string;
+  customerInfo: CustomerInfo;
+  cartId?: string;
+}
+
 // Tek ürün satın alma işlemi
-async function handleSingleItemCheckout(data: any) {
+async function handleSingleItemCheckout(data: SingleItemCheckoutData) {
   const { grocery, quantity, customerInfo } = data;
 
   await connectMongo();
@@ -79,7 +103,7 @@ async function handleSingleItemCheckout(data: any) {
 
   // Satın alınacak ürün katalogda var mı kontrol et
   let foundProduct = stripeProducts.find(
-    (product: any) => product.metadata.product_id === grocery._id
+    (product: Stripe.Product) => product.metadata?.product_id === grocery._id
   );
 
   // Eğer katalogda yoksa ürünü kataloga ekle
